@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!-- Starry night background with twinkling stars, falling stars, and a moon -->
+
+<style>
+
+</style>
+<!-- Remove this script, as twinkling stars are now handled in the main script below. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>This website is lovingly crafted for the most beautiful and cutest girl in my life ❤️✨.
+    </title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    * {
+    margin: 0;
+    padding: 0;
+  }
+  html,
+  body {
+    height: 100%;
+    /* for touch screen */
+    touch-action: none;
+  }
+  body {
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    background: #111;
+    -webkit-perspective: 1000px;
+            perspective: 1000px;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+  }
+  #drag-container, #spin-container {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: auto;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-transform: rotateX(-10deg);
+            transform: rotateX(-10deg);
+  }
+  #drag-container img, #drag-container video {
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 200px;
+    font-size: 50px;
+    text-align: center;
+    -webkit-box-shadow: 0 0 8px #fff;
+            box-shadow: 0 0 8px #fff;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
+  }
+  #drag-container img:hover, #drag-container video:hover {
+    -webkit-box-shadow: 0 0 15px #fffd;
+            box-shadow: 0 0 15px #fffd;
+    -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
+  }
+  #drag-container p {
+    font-family: Serif;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%) rotateX(90deg);
+            transform: translate(-50%,-50%) rotateX(90deg);
+    color: #fff;
+  }
+  #ground {
+    width: 900px;
+    height: 900px;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%) rotateX(90deg);
+            transform: translate(-50%,-50%) rotateX(90deg);
+    background: -webkit-radial-gradient(center center, farthest-side , #9993, transparent);
+  }
+  #music-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  @-webkit-keyframes spin {
+    from{
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    } to{
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    }
+  }
+  @keyframes spin {
+    from{
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    } to{
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    }
+  }
+  @-webkit-keyframes spinRevert {
+    from{
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    } to{
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
+  }
+  @keyframes spinRevert {
+    from{
+      -webkit-transform: rotateY(360deg);
+              transform: rotateY(360deg);
+    } to{
+      -webkit-transform: rotateY(0deg);
+              transform: rotateY(0deg);
+    }
+  }
+    #night-sky {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    z-index: -2;
+    overflow: hidden;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  }
+  #moon {
+    position: absolute;
+    top: 60px;
+    right: 120px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at 40px 40px, #fffbe6 70%, #e6e6e6 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 60px 20px #fffbe6, 0 0 120px 40px #fffbe6;
+    z-index: 2;
+  }
+  #stars, #falling-stars {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    display: block;
+  }
+  </style>
+  <body>
+    
+  
+    <div id="night-sky">
+         <audio  controls autoplay loop >
+      <source src="song.mp3" >
+     </audio>
+  <div id="moon">
+    
+  </div>
+  <canvas id="stars"></canvas>
+  <canvas id="falling-stars"></canvas>
+</div>
+
+    <!-- partial:index.partial.html -->
+    <div id="drag-container">
+      <div id="spin-container">
+
+      
+        
+        <img
+          src="2.jpg"
+          alt=""
+        />
+
+        <img
+          src="3.jpg"
+          alt=""
+        />
+
+        <img
+          src="4.jpg"
+          alt=""
+        />
+        <img
+          src="5.jpg"
+          alt=""
+        />
+
+        <img
+          src="6.jpg"
+          alt=""
+        />
+
+        <img
+          src="7.jpg"
+          alt=""
+        />
+
+        <img
+          src="8.jpg"
+          alt=""
+        />
+
+        <img
+          src="3.jpg"
+          alt=""
+        />
+
+        <img
+          src="4.jpg"
+          alt=""
+        />
+
+        <!-- Example image with link -->
+        <!-- <a target="_blank" href="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg"> -->
+        <!-- </a> -->
+        <!-- Example add video  -->
+        <!-- <video controls autoplay="autoplay" loop>
+    <source src="https://player.vimeo.com/external/322244668.sd.mp4?s=338c48ac2dfcb1d4c0689968b5baf94eee6ca0c1&profile_id=165&oauth2_token_id=57447761" type="video/mp4">
+    </video> -->
+        <!-- Text at center of ground -->
+        <p> Tumhari muskaan woh chaand hai jo andheron ko bhi roshan kar de... 🌙✨  </p>
+      </div>
+      <div id="ground">
+      
+      </div>
+    </div>
+
+    <div id="music-container"></div>
+    
+    <!-- github corner (https://github.com/tholman/github-corners) -->
+   
+    <!-- <style>
+      .github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+      }
+      @keyframes octocat-wave {
+        0%,
+        100% {
+          transform: rotate(0);
+        }
+        20%,
+        60% {
+          transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+          transform: rotate(10deg);
+        }
+      }
+      @media (max-width: 500px) {
+        .github-corner:hover .octo-arm {
+          animation: none;
+        }
+        .github-corner .octo-arm {
+          animation: octocat-wave 560ms ease-in-out;
+        }
+      }
+    </style>
+     -->
+    <!-- partial -->
+    <script src="./script.js"></script>
+    <script>
+       const starCanvas = document.getElementById('stars');
+  const ctx = starCanvas.getContext('2d');
+  let W = window.innerWidth, H = window.innerHeight;
+  starCanvas.width = W; starCanvas.height = H;
+  let stars = [];
+  for(let i=0; i<120; i++){
+    stars.push({
+      x: Math.random()*W,
+      y: Math.random()*H,
+      r: Math.random()*1.2+0.5,
+      alpha: Math.random(),
+      dx: Math.random()*0.02+0.01
+    });
+  }
+  function drawStars(){
+    ctx.clearRect(0,0,W,H);
+    for(let s of stars){
+      ctx.save();
+      ctx.globalAlpha = 0.7 + 0.3*Math.sin(s.alpha);
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, 2*Math.PI);
+      ctx.fillStyle = "#fff";
+      ctx.shadowColor = "#fff";
+      ctx.shadowBlur = 8;
+      ctx.fill();
+      ctx.restore();
+      s.alpha += s.dx;
+    }
+    requestAnimationFrame(drawStars);
+  }
+  drawStars();
+
+  // Falling stars (star snowfall)
+  const fallCanvas = document.getElementById('falling-stars');
+  const fctx = fallCanvas.getContext('2d');
+  fallCanvas.width = W; fallCanvas.height = H;
+  let fallingStars = [];
+  function spawnFallingStar(){
+    fallingStars.push({
+      x: Math.random()*W,
+      y: -10,
+      len: Math.random()*80+40,
+      speed: Math.random()*15+2,
+      alpha: Math.random()*0.5+0.5
+    });
+  }
+  setInterval(spawnFallingStar, 800);
+  function drawFallingStars(){
+    fctx.clearRect(0,0,W,H);
+    for(let i=fallingStars.length-1; i>=0; i--){
+      let fs = fallingStars[i];
+      fctx.save();
+      fctx.globalAlpha = fs.alpha;
+      fctx.strokeStyle = "#fff";
+      fctx.lineWidth = 2;
+      fctx.beginPath();
+      fctx.moveTo(fs.x, fs.y);
+      fctx.lineTo(fs.x-fs.len*0.3, fs.y+fs.len);
+      fctx.stroke();
+      fctx.restore();
+      fs.x -= fs.len*0.013;
+      fs.y += fs.speed;
+      fs.alpha -= 0.003;
+      if(fs.y > H || fs.alpha < 0.05) fallingStars.splice(i,1);
+    }
+    requestAnimationFrame(drawFallingStars);
+  }
+  drawFallingStars();
+
+  // Responsive
+  window.addEventListener('resize', ()=>{
+    W = window.innerWidth; H = window.innerHeight;
+    starCanvas.width = W; starCanvas.height = H;
+    fallCanvas.width = W; fallCanvas.height = H;
+  });
+        var radius = 240; // how big of the radius
+var autoRotate = true; // auto rotate or not
+var rotateSpeed = -60; // unit: seconds/360 degrees
+var imgWidth = 120; // width of images (unit: px)
+var imgHeight = 170; // height of images (unit: px)
+// Link of background music - set 'null' if you dont want to play background music
+// var bgMusicURL = 'https://api.soundcloud.com/tracks/143041228/stream?client_id=587aa2d384f7333a886010d5f52f302a';
+// var bgMusicControls = true; // Show UI music control
+// ===================== start =======================
+// animation start after 1000 miliseconds
+setTimeout(init, 1000);
+var odrag = document.getElementById('drag-container');
+var ospin = document.getElementById('spin-container');
+var aImg = ospin.getElementsByTagName('img');
+var aVid = ospin.getElementsByTagName('video');
+var aEle = [...aImg, ...aVid]; // combine 2 arrays
+// Size of images
+ospin.style.width = imgWidth + "px";
+ospin.style.height = imgHeight + "px";
+// Size of ground - depend on radius
+var ground = document.getElementById('ground');
+ground.style.width = radius * 3 + "px";
+ground.style.height = radius * 3 + "px";
+function init(delayTime) {
+  for (var i = 0; i < aEle.length; i++) {
+    aEle[i].style.transform = "rotateY(" + (i * (360 / aEle.length)) + "deg) translateZ(" + radius + "px)";
+    aEle[i].style.transition = "transform 1s";
+    aEle[i].style.transitionDelay = delayTime || (aEle.length - i) / 4 + "s";
+  }
+}
+function applyTranform(obj) {
+  // Constrain the angle of camera (between 0 and 180)
+  if(tY > 180) tY = 180;
+  if(tY < 0) tY = 0;
+  // Apply the angle
+  obj.style.transform = "rotateX(" + (-tY) + "deg) rotateY(" + (tX) + "deg)";
+}
+function playSpin(yes) {
+  ospin.style.animationPlayState = (yes?'running':'paused');
+}
+var sX, sY, nX, nY, desX = 0,
+    desY = 0,
+    tX = 0,
+    tY = 10;
+// auto spin
+if (autoRotate) {
+  var animationName = (rotateSpeed > 0 ? 'spin' : 'spinRevert');
+  ospin.style.animation = `${animationName} ${Math.abs(rotateSpeed)}s infinite linear`;
+}
+// add background music
+if (bgMusicURL) {
+  document.getElementById('music-container').innerHTML += `
+  <audio src="${bgMusicURL}" ${bgMusicControls? '': ''} autoplay loop >
+<p>If you are reading this, it is because your browser does not support the audio element.</p>
+</audio>
+`;
+}
+// setup events
+document.onpointerdown = function (e) {
+  clearInterval(odrag.timer);
+  e = e || window.event;
+  var sX = e.clientX,
+      sY = e.clientY;
+  this.onpointermove = function (e) {
+    e = e || window.event;
+    var nX = e.clientX,
+        nY = e.clientY;
+    desX = nX - sX;
+    desY = nY - sY;
+    tX += desX * 0.1;
+    tY += desY * 0.1;
+    applyTranform(odrag);
+    sX = nX;
+    sY = nY;
+  };
+  this.onpointerup = function (e) {
+    odrag.timer = setInterval(function () {
+      desX *= 0.95;
+      desY *= 0.95;
+      tX += desX * 0.1;
+      tY += desY * 0.1;
+      applyTranform(odrag);
+      playSpin(false);
+      if (Math.abs(desX) < 0.5 && Math.abs(desY) < 0.5) {
+        clearInterval(odrag.timer);
+        playSpin(true);
+      }
+    }, 17);
+    this.onpointermove = this.onpointerup = null;
+  };
+  return false;
+};
+document.onmousewheel = function(e) {
+  e = e || window.event;
+  var d = e.wheelDelta / 20 || -e.detail;
+  radius += d;
+  init(1);
+};
+    </script>
+  </body>
+</html>
